@@ -1,0 +1,21 @@
+{
+    "name": "leetcode",
+    "version": "1.0.0",
+    "description": "",
+    "scripts": {
+        "test": "jest"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/maerolla08/leetcode.git"
+    },
+    "author": "maerolla",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/maerolla08/leetcode/issues"
+    },
+    "homepage": "https://github.com/maerolla08/leetcode#readme",
+    "devDependencies": {
+        "jest": "^27.5.1"
+    }
+}
