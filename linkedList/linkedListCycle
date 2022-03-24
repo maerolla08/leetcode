@@ -1,0 +1,30 @@
+/*
+The input here will be a Linked List.
+
+First of all, we will check if the Linked List is empty or has just 1 node. There will not be any cycle definitely in both of the cases.
+
+Next, we will define 2 pointers, as mentioned above. First will be a slow pointer and the second will be the fast pointer i.e.
+ while traversing, when the slow pointer will move one step ahead, the fast pointer will move two steps ahead.
+
+We will keep traversing until slow and fast is not equal or one of them ( or its next ) is not NULL.
+
+If fast and slow becomes equal, then it means there is a cycle.
+
+If either of the slow or fast pointer ( or its next ) becomes NULL, it means there is no cycle in the Linked List.
+*/
+
+var hasCycle = function(head) {
+    if (head === null || head.next === null) {    // Point 2
+        return false;                             // Point 6
+    }
+    let slow = head.next;                         // Point 3
+    let fast = head.next.next;
+    while(slow!==fast) {                          // Point 4
+        slow = slow.next;
+        if (fast == null || fast.next === null) { // Point 4,5
+            return false;                         // Point 6
+        }
+        fast = fast.next.next;
+    }
+    return true;                                  // Point 5
+};
