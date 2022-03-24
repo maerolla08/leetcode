@@ -1,12 +1,49 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
 
 <head>
-
+    <script src="./format_phone/formatphone.js" defer></script>
 </head>
 
 <body>
+    <form>
+        <label for="phone">enter phone number:</label>
+        <input id="phone" type="tel" minlength="10" maxlength="13" required>
+        <small>Format: 123-456-7890</small>
+        <button id="btn_validate" onclick="formatPhone();">Validate</button>
+    </form>
+</body>
 
+</html> -->
+
+
+<!DOCTYPE html>
+<html>
+
+<body>
+    <input onkeydown="phoneNumberFormatter()" id="phone-number" />
+
+    <script>
+        function formatPhoneNumber(value) {
+            if (!value) return value;
+            const phoneNumber = value.replace(/[^\d]/g, '');
+            const phoneNumberLength = phoneNumber.length;
+            if (phoneNumberLength < 4) return phoneNumber;
+            if (phoneNumberLength < 7) {
+                return `(${phoneNumber.slice(0, 3)}) ${phoneNumber.slice(3)}`;
+            }
+            return `(${phoneNumber.slice(0, 3)}) ${phoneNumber.slice(
+          3,
+          6
+        )}-${phoneNumber.slice(6, 9)}`;
+        }
+
+        function phoneNumberFormatter() {
+            const inputField = document.getElementById('phone-number');
+            const formattedInputValue = formatPhoneNumber(inputField.value);
+            inputField.value = formattedInputValue;
+        }
+    </script>
 </body>
 
 </html>
